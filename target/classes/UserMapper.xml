@@ -11,11 +11,11 @@
     </select>
     
     <!--通过ids查询用户-->
-    <select id="findUserByIds" resultType="com.wenpeng.fan.entity.User">
+    <select id="findUserByIds" resultType="com.wenpeng.fan.entity.User" parameterType="List">
         select * from user
         <where>
         id in
-            <foreach item="item" collection="list" separator="," open="(" close=")" index="">
+            <foreach item="ids" collection="list" separator="," open="(" close=")" index="">
                 #{ids}
             </foreach>
         </where>
@@ -65,7 +65,7 @@
     </select>
 
     <!--插入用户信息-->
-    <insert id="insertUser" parameterType="com.mvc.User" useGeneratedKeys="true" keyColumn="id" keyProperty="id">
+    <insert id="insertUser" parameterType="com.wenpeng.fan.entity.User" useGeneratedKeys="true" keyColumn="id" keyProperty="id">
         insert into user(id,username,password) values(#{id},#{username},#{password})
     </insert>
     
@@ -75,7 +75,7 @@
     </delete>
     
     <!--更新用户信息-->
-    <update id="updateUser" parameterType="com.mvc.User">
+    <update id="updateUser" parameterType="com.wenpeng.fan.entity.User">
         <!-- update user set name=#{name},password=#{password} where id=#{id} -->
         update user
         <set>

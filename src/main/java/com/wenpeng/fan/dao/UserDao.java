@@ -27,7 +27,7 @@ public class UserDao {
     }
 
     public List<User> select02(List<Integer> ids){
-        List<User> users=session.selectList("findUserById",ids);
+        List<User> users=session.selectList("findUserByIds",ids);
         return users;
     }
 
@@ -42,7 +42,7 @@ public class UserDao {
         return user;
     }
     public User select05(User userselect){
-        User user=session.selectOne("findUserById",userselect);
+        User user=session.selectOne("findUserByuserorpwd",userselect);
         session.commit();
         return user;
     }

@@ -1,14 +1,14 @@
 package com.wenpeng.fan.entity;
 
 public class User {
-    private String id;
+    private int id;
     private String password;
     private String username;
 
-    public String getId() {
+    public int getId() {
         return id;
     }
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
     public String getPassword(){
